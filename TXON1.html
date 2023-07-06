@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-image: url('im.jpg');
+        }
+
+        section {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+        }
+
+        nav {
+            height: 80px;
+        }
+
+        nav h1 {
+            float: left;
+            line-height: 70px;
+            font-size: 35px;
+            color: coral;
+        }
+
+        nav ul {
+            float: right;
+            line-height: 70px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            padding: 0px 5px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 10px;
+            padding: 7px 8px;
+        }
+
+        nav ul li a:hover {
+            color: whitesmoke;
+            transition: 0.5s ease;
+        }
+
+        nav ul li a.hi {
+            background-color: whitesmoke;
+        }
+
+        .article {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            transform: translateY(25vh);
+        }
+
+        .article h1,
+        .gallery h2,
+        .about-section h2 {
+            font-size: 40px;
+            color: black;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+
+        .about-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .about-section h2 {
+            margin-bottom: 30px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .about-section p {
+            color: black;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .article .but {
+            color: whitesmoke;
+            padding: 12px 25px;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            background-color: navy;
+            transition: background-color 0.3s ease;
+        }
+
+        .article .but:hover {
+            background-color: whitesmoke;
+        }
+
+        footer {
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+            transform: translateY(10vh);
+        }
+
+        footer ul {
+            float: center;
+            line-height: 70px;
+        }
+
+        footer ul li {
+            display: inline-block;
+            list-style: none;
+            padding: 0px 5px;
+        }
+
+        footer ul li a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 10px;
+            padding: 7px 8px;
+        }
+
+        footer ul li a:hover {
+            color: whitesmoke;
+            transition: 0.5s ease;
+        }
+
+        footer ul li a.hi {
+            background-color: whitesmoke;
+        }
+
+        .bicycle-image {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 300px;
+            height: auto;
+            z-index: 999;
+            margin-top: 200px;
+        }
+
+        .gallery {
+            margin-top: 100px;
+            text-align: center;
+            margin-top: 300px;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .carousel .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .carousel img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .carousel figcaption {
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <nav>
+                <h1>LOGo</h1>
+                <ul>
+                    <li><a href="" class="hi">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="article">
+                <h1 style="color:black;">The Bicycle Room</h1>
+                <a href="" class="but">BUY NOW</a>
+            </div>
+
+            <div class="gallery">
+                <h2 style="color: black;">Gallery</h2>
+                <div class="carousel">
+                    <div class="image-container">
+                        <img src="images/th.jpeg" alt="Image 1">
+                        <figcaption>DAWES</figcaption>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/image2.jpg" alt="Image 2">
+                        <figcaption>CLASSIC</figcaption>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/tw.jpeg" alt="Image 3">
+                        <figcaption>EQUINOX</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="about-section">
+
+            <h2 style="font-family: 'Roboto', sans-serif; color: black;">About Us</h2>
+            <p>Welcome to The Bicycle Room, your ultimate destination for all things bicycles! We are passionate cyclists dedicated to providing high-quality accessories, and expert advice to riders of all levels.
+    With years of experience in the industry, we understand the joy and freedom that comes with riding a bicycle.
+    Join us on our cycling journey and experience the thrill of pedaling your way to new adventures. We invite you to explore our website, visit our store, and become part of our vibrant cycling community. Happy cycling!</p>
+
+        </section>
+        <footer>
+            <ul>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Facebook</a></li>
+            </ul>
+        </footer>
+    </section>
+</body>
+
+</html>
