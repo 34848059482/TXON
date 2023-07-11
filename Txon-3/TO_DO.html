@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO</title>
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    
+        .container {
+            text-align: center;
+        }
+    
+        .container h1 {
+            margin-bottom: 45px;
+        }
+    
+        input[type="text"],
+        button {
+            margin-right: 10px;
+        }
+    
+        input[type="text"] {
+            height: 50px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            width: 250px;
+        }
+    
+        #addButton,
+        #filterInput {
+            height: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #53EF1C;
+            color: #fff;
+            cursor: pointer;
+        }
+        #filterInput{
+            background-color: #fff;
+            color: black;
+        }
+    
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+    
+        button {
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background-color: #69A7E0;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <!-- Input box for creating tasks -->
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button id="addButton">Add Task</button>
+
+        <!-- Filter button -->
+        <input type="text" id="filterInput" placeholder="Filter tasks">
+
+        <!-- Task list -->
+        <ul id="taskList">
+            <!-- Tasks will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        
+
+        
+        let tasks = [];
+
+        // Function to add a new task
+        function addTask() {
+            const taskInput = document.querySelector('#taskInput');
+            const task = taskInput.value;
+
+            if (task) {
+                tasks.push(task);
+                displayTasks();
+                taskInput.value = '';
+            }
+        }
+
+        // Function to display tasks
+        function displayTasks() {
+            const taskList = document.querySelector('#taskList');
+            taskList.innerHTML = '';
+
+            const filterInput = document.querySelector('#filterInput');
+            const filterValue = filterInput.value.toLowerCase();
+
+            tasks.forEach(function (task, index) {
+                if (filterValue === '' || task.toLowerCase().includes(filterValue)) {
+                    const li = document.createElement('li');
+                    li.textContent = task;
+
+                    const editButton = document.createElement('button');
+                    editButton.textContent = 'Edit';
+                    editButton.addEventListener('click', function () {
+                        editTask(index);
+                    });
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', function () {
+                        deleteTask(index);
+                    });
+
+                    li.appendChild(editButton);
+                    li.appendChild(deleteButton);
+                    taskList.appendChild(li);
+                }
+            });
+        }
+
+        // Function to edit a task
+        function editTask(index) {
+            const taskInput = document.querySelector('#taskInput');
+            const editButton = document.querySelector('#addButton');
+            const task = tasks[index];
+
+            taskInput.value = task;
+            editButton.textContent = 'Update';
+            editButton.removeEventListener('click', addTask);
+            editButton.addEventListener('click', function () {
+                updateTask(index);
+            });
+        }
+
+        // Function to update a task
+        function updateTask(index) {
+            const taskInput = document.querySelector('#taskInput');
+            const editButton = document.querySelector('#addButton');
+            const task = taskInput.value;
+
+            if (task) {
+                tasks[index] = task;
+                displayTasks();
+                taskInput.value = '';
+                editButton.textContent = 'Add Task';
+                editButton.removeEventListener('click', updateTask);
+                editButton.addEventListener('click', addTask);
+            }
+        }
+
+        // Function to delete a task
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            displayTasks();
+        }
+
+        // Event listeners
+        document.querySelector('#addButton').addEventListener('click', addTask);
+        document.querySelector('#filterInput').addEventListener('input', displayTasks);
+
+        // Initial display of tasks
+        displayTasks();
+    </script>
+</body>
+</html>
